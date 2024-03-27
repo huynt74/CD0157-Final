@@ -119,7 +119,7 @@ Resources:
         ZipFile: |
           import json
           import boto3
-          from botocore.vendored import requests
+          import requests
           def handler(event, context):
             response = {
               'Status': 'SUCCESS',
@@ -161,7 +161,7 @@ Resources:
 
       Handler: index.handler
       Role: !GetAtt CustomResourceLambdaExecutionRole.Arn
-      Runtime: python3.7
+      Runtime: python3.11
       Timeout: 300
 
   CustomResourceLambdaExecutionRole:
