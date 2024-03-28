@@ -121,6 +121,7 @@ Resources:
           import boto3
           from botocore.awsrequest import AWSPreparedRequest
           from botocore.vendored import requests
+          import urllib3
           def handler(event, context):
             response = {
               'Status': 'SUCCESS',
@@ -157,7 +158,8 @@ Resources:
 
             response_body = json.dumps(response)
             headers = {'content-type': '', "content-length": str(len(response_body)) }
-            put_response = requests.post(event['ResponseURL'], headers=headers, data=response_body)
+            http = urllib3.PoolManager()
+            put_response = http.requests('PUT', event['ResponseURL'], headers=headers, data=response_body, retries=False)
             return response
 
       Handler: index.handler
