@@ -156,7 +156,7 @@ Resources:
 
             response_body = json.dumps(response)
             headers = {'content-type': '', "content-length": str(len(response_body)) }
-            put_response = AWSPreparedRequest(method='PUT', url=event['ResponseURL'], headers=headers, body=response_body)
+            put_response = AWSPreparedRequest(method='PUT', url=event['ResponseURL'], headers=headers, body=response_body, stream_output=False)
             return response
 
       Handler: index.handler
