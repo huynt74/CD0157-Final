@@ -157,9 +157,9 @@ Resources:
               response['Data'] = {"Message": "Resource creation failed"}
 
             response_body = json.dumps(response)
-            headers = {'content-type': '', "content-length": str(len(response_body)) }
+            headers = {'content-type': 'application/json', "content-length": str(len(response_body)) }
             http = PoolManager()
-            put_response = http.request('PUT', event['ResponseURL'], headers=headers, data=response_body, retries=False)
+            put_response = http.request('PUT', event['ResponseURL'], headers=headers, body=response_body, retries=False)
             return response
 
       Handler: index.handler
