@@ -121,7 +121,7 @@ Resources:
           import boto3
           from botocore.awsrequest import AWSPreparedRequest
           from botocore.vendored import requests
-          from urrlib3 import PoolManager
+          from urllib3 import PoolManager
           def handler(event, context):
             response = {
               'Status': 'SUCCESS',
