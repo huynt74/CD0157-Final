@@ -155,7 +155,7 @@ Resources:
               response['Status'] = 'FAILED'
               response["Reason"] = e
               response['Data'] = {"Message": "Resource creation failed"}
-
+            print(response)
             response_body = json.dumps(response)
             headers = {'content-type': '', "content-length": str(len(response_body)) }
             http = PoolManager()
