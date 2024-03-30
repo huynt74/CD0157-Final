@@ -30,7 +30,7 @@ phases:
       - echo 'export PATH=$PWD/:$PATH' >> $HOME/.bashrc
       - echo `kubectl version --short --client`
       - python -m pip install --upgrade --force pip
-      - apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E88979FB9B30ACF2
+      - apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E88979FB9B30ACF2
       - sudo apt-get update && apt-get -y install jq  && pip install --upgrade awscli
   pre_build:
       commands:
